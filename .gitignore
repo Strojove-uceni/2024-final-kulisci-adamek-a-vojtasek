@@ -1,1 +1,4 @@
 .idea/
+images/
+runs/
+*.pt
