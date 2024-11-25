@@ -1,0 +1,11 @@
+# Enforce LF for all text files
+* text=auto
+
+# Ensure Unix (LF) for Jupyter notebooks
+*.ipynb text eol=lf
+
+# Binary files (do not alter line endings)
+*.png binary
+*.jpg binary
+*.zip binary
+
