@@ -33,7 +33,8 @@ def filter_ingredients(ingredients_string, desired, expected):
 
 
 # File paths
-file_path = '/mnt/home2/recipe_dataset/full_dataset.csv'
+# file_path = '/mnt/home2/recipe_dataset/full_dataset.csv'
+file_path = 'D:/Programovani/SU2/RecipeNLG_dataset.csv'
 exp_ing_file = "expected_ingredients.json"
 desired_ing_file = "desired_ingredients.json"
 
