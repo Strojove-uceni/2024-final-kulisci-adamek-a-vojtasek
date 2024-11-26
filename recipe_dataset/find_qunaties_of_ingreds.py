@@ -37,7 +37,7 @@ with open(file_path, "r") as file:
                 quantity_ingredient_pairs.append({quantities: ingredient_core})
 
 # Save results to a single YAML file
-output_file = "quantities_ingredients.yaml"
+output_file = "ingredients_configs/quantities_ingredients.yaml"
 with open(output_file, "w") as file:
     yaml.dump(quantity_ingredient_pairs, file)
 

@@ -13,13 +13,13 @@ def extract_ingredients(file_path):
 
 # Analyze ingredients to find frequent words
 def analyze_ingredients(ingredient_list):
-    words = []
-    for ingredient in ingredient_list:
-        words.extend(ingredient.lower().split())  # Split into words and convert to lowercase
-    return Counter(words)
+    # Convert each ingredient to lowercase and remove duplicates
+    unique_ingredients = [ingredient.lower().strip() for ingredient in set(ingredient_list)]
+    # Count occurrences of each ingredient
+    return Counter(unique_ingredients)
 
 # File path (update this to your actual path)
-file_path = "data.yaml"
+file_path = "data_cropped.yaml"
 
 # Extract and analyze ingredients
 all_ingredients = extract_ingredients(file_path)
@@ -33,6 +33,6 @@ for word, count in word_freq.most_common(50):  # Adjust number as needed
     print(f"{word}: {count}")
 
 # Optional: Save the word frequency to a file
-with open("word_frequency.txt", "w") as file:
+with open("ingredients_configs/ingredient_frequency.txt", "w") as file:
     for word, count in word_freq.most_common():
         file.write(f"{word}: {count}\n")

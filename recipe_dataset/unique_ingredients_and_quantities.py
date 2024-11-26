@@ -2,11 +2,7 @@ import yaml
 import re
 
 # Define quantity-related keywords and regex for fractions/numbers
-quantity_keywords = {
-    "cup", "cups", "tablespoon", "tablespoons", "teaspoon", "teaspoons", "ounce", "ounces",
-    "pound", "pounds", "gram", "grams", "liter", "liters", "milliliter", "milliliters",
-    "1/2", "1/4", "3/4", "1/3", "1/8", "kg", "ml", "tbsp", "tsp"
-}
+
 quantity_pattern = re.compile(r"\d+|\d+/\d+")
 
 # Initialize sets for unique quantities and ingredients
@@ -42,8 +38,8 @@ print(f"Number of unique quantities: {len(unique_quantities)}")
 print(f"Number of unique ingredients: {len(unique_ingredients)}")
 
 # Optional: Save unique terms for further review
-with open("unique_quantities.txt", "w") as file:
+with open("ingredients_configs/unique_quantities.txt", "w") as file:
     file.write("\n".join(sorted(unique_quantities)))
 
-with open("unique_ingredients.txt", "w") as file:
+with open("ingredients_configs/unique_ingredients.txt", "w") as file:
     file.write("\n".join(sorted(unique_ingredients)))
