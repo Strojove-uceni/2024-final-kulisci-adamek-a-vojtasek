@@ -25,6 +25,7 @@ def plot_image_with_bboxes(image_path, label_path):
 
         # Convert bbox from xywh to x1, y1, x2, y2 for drawing
         x_center, y_center, width, height = bbox
+        print(image.shape)
         x1 = int((x_center - width / 2.0) * image.shape[1])
         y1 = int((y_center - height / 2.0) * image.shape[0])
         x2 = int((x_center + width / 2.0) * image.shape[1])
@@ -64,7 +65,7 @@ def plot_images_from_folder(image_folder, label_folder):
         if i >= 5:
             break
 def main():
-    base_path = "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Cartons"
+    base_path = "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Vegetables.v1i.yolov11"
     subsets = ["train", "val", "test"]
 
     for subset in subsets:

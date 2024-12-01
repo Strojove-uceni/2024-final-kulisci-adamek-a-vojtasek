@@ -67,17 +67,37 @@ def convert_labels_in_folder(folder_path):
         process_label_file(label_file)
 
 
-def main():
-    base_path = "/mnt/home2/ingredients_photo_dataset/Fridgify_Dataset/"  # Base folder containing train, val, test subfolders
-    subsets = ["train/labels", "valid/labels", "test/labels"]
 
-    for subset in subsets:
-        folder_path = os.path.join(base_path, subset)
-        print(folder_path)
-        if os.path.exists(folder_path):
-            convert_labels_in_folder(folder_path)
+
+
+def process_all_datasets(base_path, subfolders):
+    # Iterate through all datasets in the base folder
+    for dataset in os.listdir(base_path):
+        dataset_path = os.path.join(base_path, dataset)
+
+        # Check if it's a directory
+        if os.path.isdir(dataset_path):
+            print(f"Processing dataset: {dataset}")
+
+            # Iterate over subfolders (train/labels, valid/labels, test/labels)
+            for subfolder in subfolders:
+                folder_path = os.path.join(dataset_path, subfolder)
+
+                if os.path.exists(folder_path):
+                    print(f"Found folder: {folder_path}")
+                    # Process the labels in the folder
+                    convert_labels_in_folder(folder_path)
+                else:
+                    print(f"Warning: Folder {folder_path} does not exist.")
         else:
-            print(f"Warning: Folder {folder_path} does not exist.")
+            print(f"Skipping non-directory: {dataset}")
+def main():
+    base_path = "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/"
+
+    # Subfolders to look for inside each dataset
+    subfolders = ["train/labels", "valid/labels", "test/labels"]
+
+    process_all_datasets(base_path, subfolders)
 
 if __name__ == "__main__":
     main()

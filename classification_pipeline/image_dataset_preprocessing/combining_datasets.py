@@ -79,19 +79,27 @@ def create_yaml_file(output_base_path):
 if __name__ == "__main__":
     # List of dataset base paths to combine
     base_paths = [
-        "/mnt/home2/ingredients_photo_dataset/grocery_items",
-        "/mnt/home2/ingredients_photo_dataset/food_ingredients_dataset",
-        "/mnt/home2/ingredients_photo_dataset/Fruits and vegetables",
-        "/mnt/home2/ingredients_photo_dataset/shopping_cart",
-        "/mnt/home2/ingredients_photo_dataset/shopping items",
-        "/mnt/home2/ingredients_photo_dataset/Cartons",
-        "/mnt/home2/ingredients_photo_dataset/EzyCart",
-        "/mnt/home2/ingredients_photo_dataset/Fridgify_Dataset",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Dataset for YOLOv5.v2i.yolov11",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/EzyCart",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/food_ingredients_dataset",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/food_ingreds_num44",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Fridgify_Dataset",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Fruits_and_vegetables",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/grocery_items",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Ingredients_YOLO.v3:ingredients-dataset:3.0.yolov11",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Maydanoz.v2i.yolov11",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/o",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/plant_3.v2i.yolov11",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/Rec",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/SavorGH",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/shopping_cart",
+        "/mnt/home2/SU2/ingredients_photo_dataset/all_old_ds/shopping_items",
     ]
+
     # Output folder for the new combined dataset
-    output_base_path = "/mnt/home2/ingredients_photo_dataset/final_dataset/"
+    output_base_path = "/mnt/home2/SU2/ingredients_photo_dataset/final_dataset/"
     # Rewrite labels to a specific new label (0 or 1)
-    new_label = 1
+    new_label = 0
 
     combine_datasets(base_paths, output_base_path, new_label)
     create_yaml_file(output_base_path)
