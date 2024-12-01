@@ -1,4 +1,6 @@
 import os
+import shutil
+
 import cv2
 import json
 
@@ -7,8 +9,10 @@ coco_json_path = "../results/coco_results_combined.json"  # Path to the COCO ann
 images_folder = "../images/"  # Folder containing the image
 output_folder = "../results/output_cropped"  # Folder to save cropped boxes
 
-# Ensure the output folder exists
-os.makedirs(output_folder, exist_ok=True)
+# Clear the directory if it exists
+if os.path.exists(output_folder):
+    shutil.rmtree(output_folder)  # Remove all files and subdirectories
+os.makedirs(output_folder, exist_ok=True)  # Recreate the empty directory
 
 # Load the COCO JSON
 with open(coco_json_path, "r") as f:

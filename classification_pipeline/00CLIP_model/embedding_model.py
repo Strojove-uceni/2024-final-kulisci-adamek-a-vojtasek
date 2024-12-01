@@ -93,8 +93,10 @@ class EmbeddingModel(abc.ABC):
         Args:
             labels (List[str]): The list of labels to embed.
         """
+        print(labels)
         for label in tqdm(labels, desc="Calculating label embeddings"):
-            self._label_embeddings[label](self._embed_label(label))
+            embed_label = self._embed_label(label)
+            self._label_embeddings[label] = embed_label
         self.labels_embedded = True
 
     def get_labels(self) -> np.ndarray:
@@ -282,28 +284,14 @@ class EmbeddingModel(abc.ABC):
         return track_labels
     def label_image(self, image_path: str) -> str:
         """
-        Assigns the best-matching label to each track based on the chosen aggregation method.
-
-        Args:
-            labels (List[str]): List of possible labels to assign.
-            aggregation_method (str): The method to aggregate distances ('average' or 'max').
-
-        Returns:
-            dict: A dictionary mapping each track_id to its best-matching label.
         """
-        if not self._track_embeddings:
-            print("Error: No track embeddings available. Ensure embeddings are loaded or generated.")
-            return {}
 
-        track_labels = {}
         image_embedding = self.embed_image(image_path)
-        distances = [self.cosine_distance(image_embedding, label_emb) for label_emb in self._label_embeddings]
+        distances = [self.cosine_distance(image_embedding, label_emb) for label_emb in self._label_embeddings.values()]
+        best_label_index = np.argmin(distances)
+        best_label = list(self._label_embeddings.keys())[best_label_index]
 
-        best_label_index = np.argmax(distances)
-        best_label = labels[best_label_index]
-        track_labels[track_id] = best_label
-
-        return track_labels
+        return best_label
 
 
 # TODO: add following functionality in the future
