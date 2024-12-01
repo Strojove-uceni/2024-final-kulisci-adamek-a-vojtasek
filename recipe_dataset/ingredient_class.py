@@ -3,9 +3,9 @@ import re
 class Ingredient:
     def __init__(self, raw_text):
         self.raw_text = raw_text.lower()  # Store original input
+        self.base = None
         self.quantity = None
         self.units = None
-        self.base = None
         self.style = None
         self.adjectives = []
 
