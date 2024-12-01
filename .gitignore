@@ -1,5 +1,5 @@
 .idea/
-images/
+classification_pipeline/images/
 runs/
 *.pt
 *.yaml
