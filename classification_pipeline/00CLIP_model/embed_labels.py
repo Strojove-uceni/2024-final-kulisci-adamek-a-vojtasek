@@ -2,7 +2,8 @@ import os
 import cv2
 from project.recipe_dataset.ingredients_functions import load_ingredients
 from clip_model import ClipModel
-composite_ingredients, single_ingredients = load_ingredients("../../recipe_dataset/ingredients_configs/ingredients_config.yaml")
+composite_ingredients, single_ingredients = load_ingredients(
+    "../../recipe_dataset/ingredients_configs/ingredients_config_old.yaml")
 
 ingredients = composite_ingredients + single_ingredients
 clip_model = ClipModel()
