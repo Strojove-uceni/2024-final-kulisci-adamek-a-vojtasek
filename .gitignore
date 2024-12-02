@@ -2,7 +2,6 @@
 classification_pipeline/images/
 runs/
 *.pt
-*.yaml
 *.txt
 *.pyc
 *.jpg
