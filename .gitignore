@@ -2,3 +2,4 @@
 images/
 runs/
 *.pt
+__pycache__/
