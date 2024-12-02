@@ -1,3 +1,5 @@
+import os
+
 from embedding_model import EmbeddingModel
 import numpy as np
 import torch
@@ -61,6 +63,34 @@ class ClipModel(EmbeddingModel):
             image_features = self.model.get_image_features(**inputs)
         return image_features.cpu().numpy().flatten()
 
+    def save_embedded_labels(self, output_folder: str):
+        """
+        Saves the track embeddings to the specified folder.
+
+        Args:
+            output_folder (str): The folder to save the embeddings to.
+        """
+        # Ensure the output folder exists or create it
+        os.makedirs(output_folder, exist_ok=True)
+
+        if not self.labels_embedded and not self._label_embeddings:
+            print(
+                "Error: No embeddings to save. Ensure labels were embedded or loaded before calling save_track_embeddings().")
+            return
+
+        try:
+            for label, embeddings in self._label_embeddings.items():
+                output_path = os.path.join(output_folder, f"{label}_embeddings.npy")
+                np.save(output_path, embeddings)
+            print(f"Embeddings saved successfully in {output_folder}.")
+        except (OSError, IOError) as e:
+            print(f"Error saving embeddings: {e}")
+
+    def load_label_embeddings(self, input_folder):
+        for file in os.listdir(input_folder):
+            file_path = os.path.join(input_folder, file)
+            if os.path.isfile(file_path):
+                print(f"File found: {file_path}")
     def _embed_label(self, label: str) -> np.ndarray:
         """
         Generates an embedding for the input label.

@@ -5,9 +5,9 @@ import cv2
 import json
 
 # Paths
-coco_json_path = "../results/coco_results_combined.json"  # Path to the COCO annotations JSON
+coco_json_path = "../results/yolo_results.json"  # Path to the COCO annotations JSON
 images_folder = "../images/"  # Folder containing the image
-output_folder = "../results/output_cropped"  # Folder to save cropped boxes
+output_folder = "../results/yolo_objects_cropped"  # Folder to save cropped boxes
 
 # Clear the directory if it exists
 if os.path.exists(output_folder):

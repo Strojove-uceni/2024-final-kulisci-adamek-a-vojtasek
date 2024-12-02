@@ -1,22 +1,19 @@
 import os
-
 import cv2
-
 from project.recipe_dataset.ingredients_functions import load_ingredients
 from clip_model import ClipModel
 composite_ingredients, single_ingredients = load_ingredients("../../recipe_dataset/ingredients_configs/ingredients_config.yaml")
 
 ingredients = composite_ingredients + single_ingredients
-
 clip_model = ClipModel()
 
-clip_model.embed_labels(ingredients)
-input_folder = "../results/output_cropped"
+clip_model.load_label_embeddings("./embedded_labels")
+quit()
+clip_model.save_embedded_lables("./embedded_labels")
+input_folder = "../results/yolo_objects_cropped"
 
 output_folder = "labeled_images"
 os.makedirs(output_folder, exist_ok=True)
-
-
 
 # Iterate over all files in the folder
 for file_name in os.listdir(input_folder):

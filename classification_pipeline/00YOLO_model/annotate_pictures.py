@@ -6,7 +6,7 @@ model1 = YOLO("models/for_vegetables.pt")  # First model
 model2 = YOLO("models/for_packed.pt")  # Second model
 
 # Run inference on the same image with both models
-image_name = "pokus_1.jpg"
+image_name = "sarah.jpg"
 image_path = "/home/petr/Documents/SU2_project/project/classification_pipeline/images/"+ image_name
 results1 = model1([image_path], conf=0.1)
 results2 = model2([image_path], conf=0.1)
@@ -86,7 +86,7 @@ for result in results2:
             annotation_id += 1
 
 # Save results to a COCO-like JSON file
-output_file = "../results/coco_results.json"
+output_file = "../results/yolo_results.json"
 with open(output_file, "w") as f:
     json.dump(coco_data, f, indent=4)
 
