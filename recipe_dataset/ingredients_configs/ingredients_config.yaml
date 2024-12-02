@@ -1,0 +1,490 @@
+condiments:
+  apple cider vinegar:
+  - apple cider vinegar
+  - jablecny ocet
+  barbecue sauce:
+  - barbecue sauce
+  black pepper:
+  - black pepper
+  chili sauce:
+  - chili sauce
+  - chilli omacka
+  chocolate:
+  - chocolate
+  cocoa powder:
+  - cocoa powder
+  - kakao
+  dry yeast:
+  - dry yeast
+  - drozdi
+  fish sauce:
+  - fish sauce
+  hoisin sauce:
+  - hoisin sauce
+  honey:
+  - honey
+  hot sauce:
+  - hot sauce
+  - sriracha
+  - tabasco
+  tabasco:
+  - tabasco
+  ketchup:
+  - ketchup
+  lard:
+  - lard
+  mayonnaise:
+  - mayonnaise
+  - majoneza
+  mustard:
+  - mustard
+  - horcice
+  olive oil:
+  - olive oil
+  - olivovy olej
+  pesto:
+  - pesto
+  salt:
+  - salt
+  - sul
+  sesame oil:
+  - sesame oil
+  sesame seeds:
+  - sesame seeds
+  soy sauce:
+  - soy sauce
+  sriracha:
+  - sriracha
+  sugar:
+  - sugar
+  tahini:
+  - tahini
+  teriyaki sauce:
+  - teriyaki sauce
+  vanilla extract:
+  - vanilla extract
+  vegetable oil:
+  - vegetable oil
+  vinegar:
+  - vinegar
+  white pepper:
+  - white pepper
+  worcestershire sauce:
+  - worcestershire sauce
+  - worcester
+dairy:
+  blue cheese:
+  - blue cheese
+  - niva
+  brie:
+  - brie
+  butter:
+  - butter
+  buttermilk:
+  - buttermilk
+  cheddar:
+  - cheddar
+  cheese:
+  - cheese
+  cottage cheese:
+  - cottage cheese
+  - cottage
+  cream:
+  - smetana na vareni
+  - smetana na slehani
+  cream cheese:
+  - cream cheese
+  feta:
+  - feta
+  - balkansky syr
+  gouda:
+  - gouda
+  greek yogurt:
+  - greek yogurt
+  - recky jogurt
+  milk:
+  - mleko
+  mozzarella:
+  - mozzarella
+  parmesan:
+  - parmesan
+  parmigiano-reggiano:
+  - parmesan
+  ricotta:
+  - ricotta
+  roquefort:
+  - roquefort
+  - niva
+  sour cream:
+  - zakysana smetana
+  yogurt:
+  - jogurt
+experimental:
+  cukr moučka:
+  - cukr moučka
+  domaci med ve sklenici:
+  - domaci med ve sklenici
+  hladka mouka:
+  - hladka mouka
+  honey in a jar:
+  - honey in a jar
+  kyprici prasek:
+  - kyprici prasek
+  maslo:
+  - maslo
+  pernikove koreni:
+  - pernikove koreni
+
+fish:
+  anchovies:
+  - anchovicky
+  anchovy:
+  - anchovicky
+  halibut:
+  - halibut
+  mahi-mahi:
+  - mahi-mahi
+  red snapper:
+  - red snapper
+  salmon:
+  - salmon
+  trout:
+  - trout
+fruits:
+  acorn:
+  - acorn
+  apple:
+  - apple
+  banana:
+  - banana
+  blueberry:
+  - blueberry
+  cantaloupe:
+  - cantaloupe
+  cherry:
+  - cherry
+  grape:
+  - grape
+  kiwi:
+  - kiwi
+  lemon:
+  - lemon
+  lime:
+  - lime
+  mango:
+  - mango
+  orange:
+  - orange
+  peach:
+  - peach
+  pear:
+  - pear
+  pineapple:
+  - pineapple
+  pomegranate:
+  - pomegranate
+  raspberry:
+  - raspberry
+  strawberry:
+  - strawberry
+  watermelon:
+  - watermelon
+herbs:
+  basil:
+  - basil
+  bay leaf:
+  - bay leaf
+  cilantro:
+  - cilantro
+  coriander:
+  - coriander
+  dill:
+  - dill
+  mint:
+  - mint
+  oregano:
+  - oregano
+  parsley:
+  - parsley
+  rosemary:
+  - rosemary
+  tarragon:
+  - tarragon
+  thyme:
+  - thyme
+liquids:
+  beer:
+  - beer
+  - pivo
+  - pilsner urquell
+  - branik
+  - budvar
+  - lager
+  brandy:
+  - brandy
+  coffee:
+  - coffee
+  - lavazza
+  - jacobs
+  lager:
+  - beer
+  - pivo
+  - pilsner urquell
+  - branik
+  - budvar
+  - lager
+  liquor:
+  - liquor
+  - slivovice
+  red wine:
+  - red wine
+  vodka:
+  - vodka
+  water:
+  - water
+  whiskey:
+  - whiskey
+  white wine:
+  - white wine
+  wine:
+  - wine
+nuts:
+  almond:
+  - almond
+  peanut:
+  - peanut
+  walnut:
+  - walnut
+pasta_and_stuff:
+  baguette:
+  - baguette
+  bread:
+  - bread
+  breadcrumbs:
+  - breadcrumbs
+  couscous:
+  - couscous
+  egg noodles:
+  - egg noodles
+  fettuccine:
+  - fettuccine
+  lasagna sheets:
+  - lasagna sheets
+  linguine:
+  - linguine
+  naan:
+  - naan
+  pasta:
+  - pasta
+  pita:
+  - pita
+  quinoa:
+  - quinoa
+  rice:
+  - rice
+  rye bread:
+  - rye bread
+  sourdough bread:
+  - sourdough bread
+  spaghetti:
+  - pasta
+  tortillas:
+  - tortillas
+proteins:
+  bacon:
+  - bacon
+  beef:
+  - beef
+  bratwurst:
+  - bratwurst
+  chicken:
+  - chicken
+  chicken breast:
+  - chicken breast
+  chicken thigh:
+  - chicken thigh
+  crab:
+  - crab
+  crabmeat:
+  - crabmeat
+  duck:
+  - duck
+  egg:
+  - egg
+  ham:
+  - ham
+  lamb:
+  - lamb
+  pastrami:
+  - pastrami
+  pork:
+  - pork
+  prosciutto:
+  - prosciutto
+  salami:
+  - salami
+  sausage:
+  - sausage
+  soya:
+  - soya
+  tofu:
+  - tofu
+  turkey:
+  - turkey
+  venison:
+  - venison
+spices:
+  allspice:
+  - allspice
+  anise seeds:
+  - anise seeds
+  black pepper:
+  - black pepper
+  cardamom:
+  - cardamom
+  cayenne:
+  - cayenne
+  chili powder:
+  - chili powder
+  cinnamon:
+  - cinnamon
+  - skorice mleta
+  cloves:
+  - cloves
+  cumin:
+  - cumin
+  curry paste:
+  - curry paste
+  curry powder:
+  - curry powder
+  fennel seeds:
+  - fennel seeds
+  nutmeg:
+  - nutmeg
+  paprika:
+  - paprika
+  saffron:
+  - saffron
+  star anise:
+  - star anise
+  turmeric:
+  - turmeric
+  vanilla:
+  - vanilla
+staples:
+  baking soda:
+  - baking soda
+  cooking spray:
+  - cooking spray
+  cornmeal:
+  - cornmeal
+  flour:
+  - flour
+  - hladka mouka
+  - hruba mouka
+  - polohruba mouka
+  parchment paper:
+  - parchment paper
+  - pecici papir
+  pepper:
+  - pepper
+  potato starch:
+  - potato starch
+  - bramborovy skrob
+  salt:
+  - sul
+  - morska sul
+  sugar:
+  - cukr moucka
+  - cukr krystal
+vegetables:
+  argula:
+  - argula
+  asparagus:
+  - asparagus
+  avocado:
+  - avocado
+  beet:
+  - beet
+  bell pepper:
+  - bell pepper
+  black olive:
+  - black olive
+  broccoli:
+  - broccoli
+  butternut squash:
+  - butternut squash
+  carrot:
+  - carrot
+  cauliflower:
+  - cauliflower
+  celery:
+  - celery
+  chile:
+  - chile
+  chives:
+  - chives
+  cucumber:
+  - cucumber
+  eggplant:
+  - eggplant
+  fennel:
+  - fennel
+  garlic:
+  - garlic
+  ginger:
+  - ginger
+  green bean:
+  - green bean
+  green olive:
+  - green olive
+  green pepper:
+  - green pepper
+  horseradish:
+  - horseradish
+  jalapeño:
+  - jalapeño
+  kale:
+  - kale
+  leek:
+  - leek
+  lettuce:
+  - lettuce
+  mushroom:
+  - mushroom
+  olive:
+  - olive
+  onion:
+  - onion
+  parsnips:
+  - parsnips
+  peas:
+  - peas
+  pickle:
+  - pickle
+  potato:
+  - potato
+  radish:
+  - radish
+  red cabbage:
+  - red cabbage
+  red onion:
+  - red onion
+  red pepper:
+  - red pepper
+  scallions:
+  - scallions
+  shallot:
+  - shallot
+  spinach:
+  - spinach
+  sweet potato:
+  - sweet potato
+  tomato:
+  - tomato
+  turnip:
+  - turnip
+  white onion:
+  - white onion
+  zucchini:
+  - zucchini
