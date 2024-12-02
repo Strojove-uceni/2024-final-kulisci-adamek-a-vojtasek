@@ -3,8 +3,9 @@ import yaml
 
 from project.recipe_dataset.ingredients_functions import extract_ingredient, load_ingredients
 
-composite_ingredients, single_ingredients = load_ingredients("ingredients_configs/ingredients_config.yaml")
+composite_ingredients, single_ingredients = load_ingredients("ingredients_configs/ingredient_dict_no_named_variations.yaml")
 
+print(composite_ingredients, single_ingredients)
 with open("data_cropped.yaml", "r") as file:
     dataset = yaml.safe_load(file)
 
@@ -18,3 +19,4 @@ for i in range(100, 200):
             print(f"FROM: {ing:<50} => TO: {core_ingredient:<50}")  # Format with consistent spacing
         else:
             print(f"FROM: {ing:<50} => TO: {none:<50}")
+

@@ -10,18 +10,15 @@ def load_ingredients(file_path):
     with open(file_path, "r") as file:
         data = yaml.safe_load(file)
 
-    # Extract categorized ingredients
-    categories = data["categories"]
-
     # Flatten into composite and single ingredients
     composite_ingredients = []
     single_ingredients = []
-    for category, items in categories.items():
-        for item in items:
-            if " " in item:  # Check for composite ingredients
-                composite_ingredients.append(item)
+    for category, ingredients in data.items():
+        for ingredient in ingredients.keys():
+            if " " in ingredient:  # Check for composite ingredients
+                composite_ingredients.append(ingredient)
             else:
-                single_ingredients.append(item)
+                single_ingredients.append(ingredient)
 
     return composite_ingredients, single_ingredients
 
