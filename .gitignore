@@ -3,5 +3,6 @@ classification_pipeline/images/
 runs/
 *.pt
 *.txt
-*.pyc
+__pycache__/
+
 *.jpg
