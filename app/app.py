@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 from PIL import Image, ImageTk
+import os
+from tkinter import PhotoImage
 from tkinter import font as tkFont
 import subprocess
 import json
@@ -33,25 +35,34 @@ def filter_recipes3(labels):
     print(f"Filtering recipes using: {labels}")
     return ["Recipe 4: Tvoje ségra"]  # Simulated output
 
+
 class RecipeFinderApp(tk.Tk):
     def __init__(self):
         super().__init__()
+
+        image_path = "D:\\Programovani\\SU2\\GitRepos\\2024-final-kulisci-adamek-a-vojtasek\\app\\proxy-image.jpg"
+        '''
+        # Set the window title and start fullscreen
         self.title("Recipe Finder")
-        self.attributes("-fullscreen", True)  # Start in fullscreen
+        self.attributes("-fullscreen", True)  # Start in fullscreen mode '''
+        self.title("Test Background")
+        self.geometry("800x600")  # Fixed window size for testing
 
-        # Bind keys for fullscreen and exit
-        self.bind("<Escape>", lambda e: self.exit_fullscreen())  # Exit fullscreen with Esc
-
-
+        # Load and set the background image
+        self.set_background(image_path)
 
         # Initialize shared variables
         self.image_path = None
         self.detected_labels = []
         self.filtered_recipes = []
 
-        # Create main container frame
+        # Create the main container frame before other widgets
         self.container = tk.Frame(self)
         self.container.pack(fill="both", expand=True)
+
+        # Frame for widgets (with transparent background)
+        content_frame = tk.Frame(self, bg="#000000", bd=0)
+        content_frame.place(relx=0.5, rely=0.5, anchor="center")  # Center in the window
 
         # Define steps (frames)
         self.frames = {}
@@ -63,6 +74,25 @@ class RecipeFinderApp(tk.Tk):
         # Show the first step
         self.show_frame(UploadFrame)
 
+        # Bind keys for fullscreen and exit
+        self.bind("<Escape>", lambda e: self.exit_fullscreen())  # Exit fullscreen with Esc
+
+    def set_background(self, image_path):
+        """Load and set the background image."""
+        if os.path.exists(image_path):
+            self.bg_image = Image.open(image_path)
+            self.bg_photo = ImageTk.PhotoImage(self.bg_image)
+
+            # Create a background label and place it
+            self.bg_label = tk.Label(self, image=self.bg_photo)
+            self.bg_label.image = self.bg_photo  # Prevent garbage collection
+            self.bg_label.place(relwidth=1, relheight=1)  # Cover the whole window
+            self.bg_label.lower()  # Send the background label to the back
+
+            print("Background set successfully.")
+        else:
+            print(f"Background image not found: {image_path}")
+
     def show_frame(self, frame_class):
         """Show a frame for the given class."""
         frame = self.frames[frame_class]
@@ -71,7 +101,6 @@ class RecipeFinderApp(tk.Tk):
     def exit_fullscreen(self):
         """Exit fullscreen mode."""
         self.attributes("-fullscreen", False)
-
 
 
 # Step 1: Upload Image Frame
