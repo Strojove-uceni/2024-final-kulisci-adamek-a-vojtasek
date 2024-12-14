@@ -19,8 +19,8 @@ def cut_out_objects(coco_data, image_folder):
     os.makedirs(output_folder, exist_ok=True)  # Recreate the empty directory
 
     for image_info in tqdm(coco_data["images"], desc="Cropping objects"):
-        image_path = image_info["file_name"]
-        image_name = os.path.basename(image_path)
+        image_name = os.path.basename(image_info["file_name"])
+        image_path = os.path.join(images_folder, image_name)
         # Check if the image exists
         if not os.path.exists(image_path):
             print(f"Image {image_path} does not exist.")

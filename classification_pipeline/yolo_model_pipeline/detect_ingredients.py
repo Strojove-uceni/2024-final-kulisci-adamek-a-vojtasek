@@ -1,10 +1,6 @@
-import json
-import os
-from ultralytics import YOLO
-import numpy as np
 import project.paths as paths
 
-from project.classification_pipeline.yolo_model_pipeline.models.YOLO_model import YoloModel
+from project.classification_pipeline.yolo_model_pipeline.YOLO_model import YoloModel
 
 
 

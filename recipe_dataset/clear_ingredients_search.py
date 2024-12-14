@@ -1,22 +1,24 @@
 
 import yaml
 
+from project import paths
 from project.recipe_dataset.ingredients_functions import extract_ingredient, load_ingredients
 
 composite_ingredients, single_ingredients = load_ingredients("../ingredients_configs/ingredients_config.yaml")
 
-print(composite_ingredients, single_ingredients)
-with open("data_cropped.yaml", "r") as file:
+with open("dataset_recipe_unified.yaml", "r") as file:
     dataset = yaml.safe_load(file)
-
-
-for i in range(100, 200):
+with open(paths.config["reversed_ingredients_dict"]) as f:
+    unified_labels = yaml.safe_load(f)
+new_dataset = []
+print(len(dataset))
+for i in range(len(dataset)):
     ingredients = dataset[i]["ingredients"]
-    none = "none"
-    unable = False
+    new_ingreds = []
     for ing in ingredients:
-        core_ingredient = extract_ingredient(ing, composite_ingredients, single_ingredients)
-        if core_ingredient is None:
-            break
-            unable = True
+        new_ingreds.append(unified_labels[extract_ingredient(ing, composite_ingredients, single_ingredients)])
+    dataset[i]["ingredients"] = new_ingreds
+
+with open("dataset_recipe_unified.yaml", "w") as f:
+    yaml.dump(dataset, f)
 

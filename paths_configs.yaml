@@ -3,7 +3,8 @@ yolo_results:
 
 clip_results:
   /home/petr/Documents/SU2_project/project/results/annotations/clip_results.json
-
+annotated_images:
+    /home/petr/Documents/SU2_project/project/classification_pipeline/results/annotated_images
 images:
   /home/petr/Documents/SU2_project/project/classification_pipeline/images
 validation_images:
@@ -25,3 +26,6 @@ yolo_model_2:
 
 cropped_objects_folder:
   /home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_objects_cropped
+
+recipe_dataset:
+    /home/petr/Documents/SU2_project/project/recipe_dataset/dataset_recipe_unified.yaml
