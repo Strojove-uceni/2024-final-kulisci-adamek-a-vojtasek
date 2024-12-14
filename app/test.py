@@ -6,14 +6,36 @@ import os
 from tkinter import ttk  # Import ttk for Treeview
 
 
+def call_yolo(self, image_path):
+    """Call the YOLO script to process the image."""
+    # Assuming the YOLO script takes the image path and outputs the processed image
+    self.processed_image_path = "D:\\Programovani\\SU2\\GitRepos\\2024-final-kulisci-adamek-a-vojtasek\\app\\proxy-image.jpg"
+    '''
+    result = subprocess.run(['python', 'yolo_script.py', image_path], capture_output=True, text=True)
+    if result.returncode == 0:
+        self.processed_image_path = "processed_image.jpg"  # Path to processed image
+    else:
+        print("YOLO Error:", result.stderr)
+    '''
+
+    def call_cliper(self, image_path):
+        """Call the CLIPER script to get labels from the processed image."""
+        result = subprocess.run(['python', 'clipper_script.py', image_path], capture_output=True, text=True)
+        if result.returncode == 0:
+            # Extract labels from CLIPER output
+            labels = result.stdout.splitlines()
+            self.ingredients = labels
+        else:
+            print("CLIPER Error:", result.stderr)
+
+
 class RecipeFinderApp(tk.Tk):
     def __init__(self):
         super().__init__()
 
         # App configuration
         self.title("Recipe Finder")
-        self.attributes("-fullscreen", True)
-        self.bind("<Escape>", lambda e: self.exit_fullscreen())
+        self.geometry("1200x800")
         # self.configure(bg="white")
 
         # Set background image
@@ -35,7 +57,7 @@ class RecipeFinderApp(tk.Tk):
 
         # Define frames
         self.frames = {}
-        for F in (UploadFrame, ComparisonFrame, LabelsFrame):
+        for F in (UploadFrame, PreviewFrame, ComparisonFrame, LabelsFrame):
             frame = F(parent=self.container, app=self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -52,24 +74,6 @@ class RecipeFinderApp(tk.Tk):
         """Exit fullscreen mode."""
         self.attributes("-fullscreen", False)
 
-    def call_yolo(self, image_path):
-        """Call the YOLO script to process the image."""
-        # Assuming the YOLO script takes the image path and outputs the processed image
-        result = subprocess.run(['python', 'yolo_script.py', image_path], capture_output=True, text=True)
-        if result.returncode == 0:
-            self.processed_image_path = "processed_image.jpg"  # Path to processed image
-        else:
-            print("YOLO Error:", result.stderr)
-
-    def call_cliper(self, image_path):
-        """Call the CLIPER script to get labels from the processed image."""
-        result = subprocess.run(['python', 'clipper_script.py', image_path], capture_output=True, text=True)
-        if result.returncode == 0:
-            # Extract labels from CLIPER output
-            labels = result.stdout.splitlines()
-            self.ingredients = labels
-        else:
-            print("CLIPER Error:", result.stderr)
 
     def save_ingredients(self):
         """Save ingredients and quantities to a text file."""
@@ -93,14 +97,55 @@ class UploadFrame(tk.Frame):
         """Handle the image upload."""
         file_path = filedialog.askopenfilename(title="Select an Image File",
                                                filetypes=[("Image Files", "*.jpg *.png *.jpeg")])
-        if file_path:
-            self.app.image_path = file_path
-            self.app.call_yolo(file_path)  # Call YOLO after uploading
-            self.app.show_frame(ComparisonFrame)
 
     def reupload_image(self):
         """Reupload the image if needed."""
         self.upload_image()
+
+# Step 2: Preview Image Frame
+class PreviewFrame(tk.Frame):
+    def __init__(self, parent, app):
+        super().__init__(parent)
+        self.app = app
+        self.image_label = None
+
+        self.header = tk.Label(self, text="Preview Uploaded Image", font=("Arial", 20))
+        self.header.pack(pady=20)
+
+        self.image_display = tk.Label(self)
+        self.image_display.pack(pady=10)
+
+        button_frame = tk.Frame(self)
+        button_frame.pack(pady=10)
+
+        reupload_button = tk.Button(button_frame, text="Reupload Image",font=("Arial", 12) , command=self.reupload_image, width=13, height=1)
+        reupload_button.grid(row=0, column=0, padx=10)
+
+        confirm_button = tk.Button(button_frame, text="Confirm",font=("Arial", 12) , command=self.confirm_image, width=13, height=1)
+        confirm_button.grid(row=0, column=1, padx=10)
+
+    def tkraise(self, *args, **kwargs):
+        super().tkraise(*args, **kwargs)
+        self.display_image()
+
+    def display_image(self):
+        """Display the uploaded image."""
+        if self.app.image_path:
+            img = Image.open(self.app.image_path)
+            img.thumbnail((400, 300))
+            photo = ImageTk.PhotoImage(img)
+            self.image_display.config(image=photo)
+            self.image_display.image = photo
+
+    def reupload_image(self):
+        """Go back to the upload step."""
+        self.app.show_frame(UploadFrame)
+
+    def confirm_image(self):
+        """Proceed to label detection step."""
+        self.app.ingredients = call_yolo(self.app.image_path)
+        self.app.show_frame(LabelsFrame)
+
 
 
 class ComparisonFrame(tk.Frame):
