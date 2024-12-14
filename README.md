@@ -45,10 +45,27 @@ Once the ingredients are identified, they are matched against a **recipe databas
 ## 📊 Evaluation
 
 ### 🔍 **1. Metrics**
-We evaluated the ingredient detection system using the following metrics:
-- **Precision**: Measures how accurate our predictions are (i.e., how many of the detected ingredients are correct).
-- **Recall**: Measures how many of the ground-truth ingredients were detected.
-- **mAP (Mean Average Precision)**: This metric gives a comprehensive view of precision and recall across different IoU thresholds.
+
+## 📊 Model Evaluation Results
+
+### **Model 1**
+| **IoU Threshold** | **Precision** | **Recall** |
+|-------------------|---------------|------------|
+| **0.1**           | 0.7034        | 0.7845     |
+| **0.5**           | 0.5937        | 0.7321     |
+| **0.75**          | 0.4884        | 0.6519     |
+| **0.9**           | 0.3992        | 0.5373     |
+
+### **Model 2**
+| **IoU Threshold** | **Precision** | **Recall** |
+|-------------------|---------------|------------|
+| **0.1**           | 0.6709        | 0.8465     |
+| **0.5**           | 0.5398        | 0.7951     |
+| **0.75**          | 0.4252        | 0.7091     |
+| **0.9**           | 0.3436        | 0.5785     |
+
+---
+
 
 ### 📈 **2. Plots & Graphs**
 **Precision-Recall Curve Example**:
