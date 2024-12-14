@@ -113,10 +113,16 @@ if __name__ == "__main__":
         'white pepper': 'pepper',
         'quinoa': None,
         'black olive': 'olive',
-
+        'pepper': None,
+        'arugula': None,
+        'red onion': 'onion',
+        'white onion': 'onion',
+        'shallot': 'onion',
+        'soya': None,
+        'cheese': None
     }
-    ground_truth_path = "/home/petr/Documents/SU2_project/project/coco_dataset1/annotations/instances_default.json"
-    output_path = "/home/petr/Documents/SU2_project/project/coco_dataset1/annotations/instances_relabelled.json"
+    ground_truth_path = "/project/results/annotations/validation.json"
+    output_path = "/project/results/annotations/validation_relabeled.json"
     # prediction_path = "/project/coco_dataset1/annotations/instances_.json"
     # output_path = "/project/coco_dataset1/annotations/instances_relabelled_preds.json"
     # Call the function

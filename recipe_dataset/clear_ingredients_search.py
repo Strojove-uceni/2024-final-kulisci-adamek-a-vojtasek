@@ -13,10 +13,10 @@ with open("data_cropped.yaml", "r") as file:
 for i in range(100, 200):
     ingredients = dataset[i]["ingredients"]
     none = "none"
+    unable = False
     for ing in ingredients:
         core_ingredient = extract_ingredient(ing, composite_ingredients, single_ingredients)
-        if core_ingredient is not None:
-            print(f"FROM: {ing:<50} => TO: {core_ingredient:<50}")  # Format with consistent spacing
-        else:
-            print(f"FROM: {ing:<50} => TO: {none:<50}")
+        if core_ingredient is None:
+            break
+            unable = True
 

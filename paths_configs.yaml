@@ -1,8 +1,8 @@
 yolo_results:
-  /home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_results.json
+  /home/petr/Documents/SU2_project/project/results/annotations/yolo_results.json
 
 clip_results:
-  /home/petr/Documents/SU2_project/project/coco_dataset1/annotations/clip_results.json
+  /home/petr/Documents/SU2_project/project/results/annotations/clip_results.json
 
 images:
   /home/petr/Documents/SU2_project/project/classification_pipeline/images
@@ -24,4 +24,4 @@ yolo_model_2:
   /home/petr/Documents/SU2_project/project/classification_pipeline/yolo_model_pipeline/models/for_packed.pt
 
 cropped_objects_folder:
-  "/home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_objects_cropped"
+  /home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_objects_cropped
