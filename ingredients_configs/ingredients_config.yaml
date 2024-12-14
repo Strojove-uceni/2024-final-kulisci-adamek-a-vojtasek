@@ -1,0 +1,379 @@
+condiments:
+  vinegar:
+  - apple cider vinegar
+  - jablecny ocet
+  - vinegar
+  - ocet
+  barbecue sauce:
+  - barbecue sauce
+  - bbq omacka
+  black pepper:
+  - black pepper
+  - ground black pepper
+  - cerny pepr
+  - vitana cerny pepr
+  chocolate:
+  - chocolate
+  - cokolada
+  cocoa powder:
+  - cocoa powder
+  - kakao
+  honey:
+  - honey
+  - honey in a jar
+  - med
+  hot sauce:
+  - hot sauce
+  - chili sauce
+  - chilli omacka
+  - sriracha
+  - tabasco
+  ketchup:
+  - ketchup
+  - kecup
+  mayonnaise:
+  - mayonnaise
+  - majoneza
+  mustard:
+  - mustard
+  - horcice
+  olive oil:
+  - olive oil
+  - olivovy olej
+  pesto:
+  - pesto
+  soy sauce:
+  - soy sauce
+  - kikkoman
+  sugar:
+  - sugar
+  - cukr krystal
+  - cukr moucka
+  - cukr
+  vegetable oil:
+  - vegetable oil
+  - slunecnicovy olej
+  - repkovy olej
+  worcestershire sauce:
+  - worcestershire sauce
+  - worcester
+  coconut milk:
+  - coconut milk in a can
+  - coconut milk
+  - kokosove mleko
+dairy:
+  blue cheese:
+  - blue cheese
+  - niva
+  brie:
+  - brie
+  - hermelin
+  - camembert
+  buttermilk:
+  - buttermilk
+  - podmasli
+  cheddar:
+  - cheddar
+  cheese:
+  - cheese
+  cottage cheese:
+  - cottage cheese
+  - cottage
+  cream:
+  - smetana na vareni
+  - smetana na slehani
+  cream cheese:
+  - cream cheese
+  - philadelphia
+  - zerve
+  feta:
+  - feta
+  - balkansky syr
+  gouda:
+  - gouda
+  milk:
+  - jug of milk
+  - milk in a carton
+  - plnotucne mleko
+  - polotucne mleko
+  mozzarella:
+  - mozzarella
+  parmesan:
+  - parmesan
+  ricotta:
+  - ricotta
+  sour cream:
+  - zakysana smetana
+  yogurt:
+  - jogurt
+  - greek yogurt
+  - recky jogurt
+experimental:
+  baking powder:
+  - kyprici prasek
+  - prasek do peciva
+  butter:
+  - butter
+  - maslo
+  - tesco maslo
+  gingerbread spice:
+  - pernikove koreni
+fish:
+  salmon:
+  - salmon
+  - raw salmon meat
+  trout:
+  - trout
+  - raw trout meat
+  tuna:
+  - tuna
+  - raw tuna meat
+  cod:
+  - cod
+  - raw cod meat
+fruits:
+  apple:
+  - apple
+  banana:
+  - banana
+  blueberry:
+  - blueberry
+  cantaloupe:
+  - cantaloupe
+  cherry:
+  - cherry
+  grape:
+  - grape
+  kiwi:
+  - kiwi
+  lemon:
+  - lemon
+  lime:
+  - lime
+  mango:
+  - mango
+  orange:
+  - orange
+  peach:
+  - peach
+  pear:
+  - pear
+  pineapple:
+  - pineapple
+  pomegranate:
+  - pomegranate
+  raspberry:
+  - raspberry
+  strawberry:
+  - strawberry
+  watermelon:
+  - watermelon
+  coconut:
+  - coconut
+herbs:
+  basil:
+  - basil
+  - vitana bazalka
+  bay leaf:
+  - bay leaf
+  - vitana bobkovy list
+  cilantro:
+  - cilantro
+  dill:
+  - dill
+  - vitana kopr
+  oregano:
+  - oregano
+  - vitana oregano
+  - ground oregano
+  parsley:
+  - parsley
+  rosemary:
+  - rosemary
+  - vitana rozmarin
+  thyme:
+  - thyme
+  - vitana tymian
+  provence herbs:
+  - vitana provencalske bylinky
+liquids:
+  beer:
+  - beer
+  - pivo
+  - pilsner urquell
+  - branik
+  - lager
+  coffee:
+  - coffee beans
+  - lavazza
+  - jacobs
+  red wine:
+  - red wine
+  vodka:
+  - vodka
+  water:
+  - bottle of water
+  - water in a glass
+  whiskey:
+  - whiskey
+  white wine:
+  - white wine
+pasta_and_stuff:
+  baguette:
+  - baguette
+  bread:
+  - bread
+  - sourdough bread
+  egg noodles:
+  - packed egg noodles
+  naan:
+  - naan
+  pasta:
+  - pasta
+  - spaghetti
+  pita:
+  - pita
+  rice:
+  - rice
+  - vitana ryze
+
+  tortillas:
+  - tortillas
+proteins:
+  bacon:
+  - bacon
+  beef:
+  - beef
+  - raw beef
+  chicken:
+  - raw chicken
+  - chicken breast
+  - chicken thigh
+  egg:
+  - egg
+  - vejce M
+  ham:
+  - ham
+  - sunka
+  - sunka od kosti
+  pork:
+  - raw pork
+  - raw pork meat
+  - raw pork chop
+  prosciutto:
+  - prosciutto
+  salami:
+  - salami
+  sausage:
+  - sausage
+  tofu:
+  - tofu
+spices:
+  chilli:
+  - chilli powder
+  - vitana chilli mlete
+  - chilli
+  cinnamon:
+  - cinnamon
+  - skorice mleta
+  cloves:
+  - cloves
+  cumin:
+  - cumin
+  - vitana kmin
+  curry powder:
+  - curry powder
+  - vitana kari
+  nutmeg:
+  - nutmeg
+  - vitana muskatovy orech
+  paprika:
+  - vitana paprika sladka
+  - paprika uzena
+  - ground paprika
+  vanilla:
+  - vanilla
+  - vitana vanilka mleta
+staples:
+  baking soda:
+  - baking soda
+  - jedla soda
+  flour:
+  - flour
+  - hladka mouka
+  - hruba mouka
+  - polohruba mouka
+  starch:
+  - potato starch
+  - bramborovy skrob
+  - corn starch
+  - kukuricny skrob
+vegetables:
+  asparagus:
+  - asparagus
+  avocado:
+  - avocado
+  beet:
+  - beet
+  bell pepper:
+  - bell pepper
+  - green bell pepper
+  - red bell pepper
+  olive:
+  - black olive
+  - green olive
+  broccoli:
+  - broccoli
+  butternut squash:
+  - butternut squash
+  carrot:
+  - carrot
+  cauliflower:
+  - cauliflower
+  celery:
+  - celery
+  cucumber:
+  - cucumber
+  eggplant:
+  - eggplant
+  garlic:
+  - garlic
+  ginger:
+  - ginger
+  horseradish:
+  - horseradish
+  jalapeño:
+  - jalapeño
+  leek:
+  - leek
+  lettuce:
+  - lettuce
+  mushroom:
+  - mushroom
+  - champinon
+  onion:
+  - onion
+  - red onion
+  - shallot
+  - white onion
+  peas:
+  - peas
+  pickles:
+  - pickles
+  - nakladane okurky
+  potato:
+  - potato
+  radish:
+  - radish
+  scallions:
+  - scallions
+  spinach:
+  - spinach
+  sweet potato:
+  - sweet potato
+  cabbage:
+    - cabbage
+  tomato:
+  - tomato
+  zucchini:
+  - zucchini
