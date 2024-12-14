@@ -1,7 +1,7 @@
 .idea/
 images/
 runs/
-coco_dataset/
+results/
 coco_dataset1/
 coco_dataset2/
 yolo_objects_cropped/
@@ -14,3 +14,5 @@ tensorboard_logs/
 *.jpg
 *.png
 *.jpeg
+*.env
+
