@@ -40,7 +40,7 @@ def calculate_iou(boxA, boxB):
     iou = interArea / float(boxAArea + boxBArea - interArea)
     return iou
 
-def existance_pr(predictions, ground_truths, class_id, iou_threshold=0.5):
+def existance_pr(predictions, ground_truths, class_id, iou_threshold=0):
     """
     Calculate True Positives (TP), False Positives (FP), and False Negatives (FN)
     for the presence of an ingredient in an image, regardless of how many times it appears.
@@ -78,10 +78,8 @@ def existance_pr(predictions, ground_truths, class_id, iou_threshold=0.5):
         match_found = False
         for pred_box in pred_boxes:
             for gt_box in gt_boxes:
-                iou = calculate_iou(pred_box, gt_box)
-                if iou >= iou_threshold:
-                    match_found = True
-                    break
+                match_found = True
+                break
             if match_found:
                 break
 
@@ -125,7 +123,7 @@ def calculate_precision_recall(predictions, ground_truths, class_id, iou_thresho
             if iou > best_iou:
                 best_iou = iou
                 best_id = gt['id']
-        if best_iou >= iou_threshold:
+        if best_iou > 0 and best_iou >= iou_threshold:
             tp += 1
             gt_matched_ids.add(best_id)  # Mark ground-truth as matched
         else:
@@ -138,7 +136,7 @@ def calculate_precision_recall(predictions, ground_truths, class_id, iou_thresho
     return tp, fp, fn
 
 
-def calculate_map(ground_truth_file, prediction_file, iou_threshold=0.5, count_empty_classes=False):
+def calculate_pr(ground_truth_file, prediction_file, iou_threshold=0.5, count_empty_classes=False):
     coco_preds = map_image_and_category_ids(ground_truth_file, prediction_file)
 
     with open(ground_truth_file, 'r') as f:
@@ -158,7 +156,10 @@ def calculate_map(ground_truth_file, prediction_file, iou_threshold=0.5, count_e
         class_ground_truths = [gt for gt in ground_truths if gt['category_id'] == class_id]
 
         if len(class_ground_truths) == 0:
-            precision, recall = 0, 0
+            if not count_empty_classes:
+                precision, recall = None, None
+            else:
+                precision, recall = 0, 0
             print(f"Class '{class_name}' has no ground-truth annotations. Skipping AP and Recall calculation for this class.")
         else:
             tp, fp, fn = calculate_precision_recall(predictions, ground_truths, class_id, iou_threshold)
@@ -193,13 +194,13 @@ def calculate_map(ground_truth_file, prediction_file, iou_threshold=0.5, count_e
 if __name__ == "__main__":
     # Paths to your COCO annotation files
 
-    ground_truth_path = "/home/petr/Documents/SU2_project/project/coco_dataset1/annotations/instances_relabelled.json"
-    prediction_path = "/home/petr/Documents/SU2_project/project/coco_dataset1/annotations/clip_results.json"
+    ground_truth_path = "/project/results/annotations/validation_relabeled.json"
+    prediction_path = "/project/results/annotations/clip_results.json"
 
     # IoU threshold
-    iou_thresholds = [0, 0.5, 0.75, 0.9] # This can be 0.5, 0.75, etc.
+    iou_thresholds = [0.1, 0.5, 0.75, 0.9] # This can be 0.5, 0.75, etc.
 
     # Calculate mAP
     for iou_threshold in iou_thresholds:
-        map_score, mrecall_score = calculate_map(ground_truth_path, prediction_path, iou_threshold)
-        print(f"mAP at IoU={iou_threshold}: {map_score:.4f}, mRecall at IoU={iou_threshold}: {mrecall_score:.4f}")
+        p_score, recall_score = calculate_pr(ground_truth_path, prediction_path, iou_threshold)
+        print(f"Precision at IoU={iou_threshold}: {p_score:.4f}, Recall at IoU={iou_threshold}: {recall_score:.4f}")

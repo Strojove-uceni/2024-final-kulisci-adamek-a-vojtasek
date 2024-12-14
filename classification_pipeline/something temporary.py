@@ -64,7 +64,7 @@ for image_path, label in clip_labels.items():
         print(f"Warning: Image {file_name} not found in YOLO results. Skipping...")
 
 # Save the updated COCO-like JSON with both YOLO and CLIP results
-output_file = "../coco_dataset/annotations/clip_results.json"
+output_file = "../results/annotations/clip_results.json"
 with open(output_file, "w") as f:
     json.dump(coco_data, f, indent=4)
 

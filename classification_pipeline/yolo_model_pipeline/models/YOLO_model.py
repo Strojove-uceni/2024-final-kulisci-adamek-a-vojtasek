@@ -39,8 +39,8 @@ class YoloModel(abc.ABC):
         for image_name in tqdm(image_files, desc="Object detection"):
             image_path = os.path.join(folder_path, image_name)
 
-            results1 = self.model1([image_path], conf=0.01, verbose=False)
-            results2 = self.model2([image_path], conf=0.01, verbose=False)
+            results1 = self.model1([image_path], conf=0.1, verbose=False)
+            results2 = self.model2([image_path], conf=0.05, verbose=False)
 
             image_info = {
                 "id": image_id,

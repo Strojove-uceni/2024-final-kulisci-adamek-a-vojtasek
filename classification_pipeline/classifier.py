@@ -19,39 +19,122 @@ class IngredientClassifier():
         self.yolo_model = YoloModel()
         self.clip_model = ClipModel()
 
-    def inference(self, image_folder, iou_threshold=0.8) -> Image:
+    def inference(self, image_folder, iou_threshold=0.8, visualize=False) -> (dict, list):
+        """
+        Run inference on images in a folder.
+
+        Args:
+            image_folder (str): Path to the folder containing images to process.
+            iou_threshold (float): Intersection over Union (IoU) threshold for filtering YOLO predictions.
+            visualize (bool): If True, return images with bounding boxes and annotations drawn on them.
+
+        Returns:
+            Tuple[dict, list]:
+                - A dictionary where the keys are image paths and the values are PIL images with annotations drawn.
+                - A list of lists of detected ingredients, one list per image.
+        """
         output_file = paths.config["yolo_results"]
+
+        # Load the unified labels
         with open(paths.config["reversed_ingredients_dict"]) as f:
             unified_labels = yaml.safe_load(f)
+
+        unified_labels_list = list(set(unified_labels.values()))
+        print(f"Unified Labels: {unified_labels_list}")
+
+        # YOLO inference
         coco_data = self.yolo_model.detect(image_folder, output_file, iou_threshold=iou_threshold, save=True)
+
+        # Cut out objects from images (for CLIP classification)
         cut_out_objects(coco_data, image_folder)
 
+        # Load CLIP embeddings
         self.clip_model.load_label_embeddings(paths.config["embedded_labels"])
-        # clip_labels = predict(self.clip_model)
-        cropped_obj = paths.config["cropped_objects_folder"]
-        unified_labels_list = list(set(unified_labels.values()))
-        print(unified_labels_list)
+
+        # Add category labels for the unified labels
         for label in unified_labels_list:
             coco_data["categories"].append({
                 "id": unified_labels_list.index(label),
                 "name": label,
             })
 
-        # for image_path, label in clip_labels.items():
+        cropped_obj = paths.config["cropped_objects_folder"]
 
+        # Classify each cropped image using the CLIP model
         for file_name in tqdm(os.listdir(cropped_obj), desc="Classifying ingredients"):
-            if file_name.endswith(".jpg") or file_name.endswith(".png") or file_name.endswith(".jpeg"):  # Process only .jpg files
-                # Extract image file name from the path
-                # Get the corresponding image ID from the YOLO JSON
-                object_id = int(re.search(r'ann_(\d+)', file_name)[1])
-                # Add a new annotation for the classification result from CLIP
+            if file_name.endswith((".jpg", ".png", ".jpeg")):  # Only process image files
+                object_id = int(re.search(r'ann_(\d+)', file_name)[1])  # Extract object ID from file name
                 image_path = os.path.join(cropped_obj, file_name)
-                label = self.clip_model.label_image(image_path)
+                label = self.clip_model.label_image(image_path)  # Predict ingredient label using CLIP
                 coco_data["annotations"][object_id]["category_id"] = unified_labels_list.index(unified_labels[label])
+
+        # Save the updated COCO annotations
         with open(paths.config["clip_results"], "w") as f:
             json.dump(coco_data, f, indent=4)
-        # return self.add_bboxes_and_annotation(coco_data)
-        return coco_data
+
+        # If visualization is enabled, draw bounding boxes and return the images
+        if visualize:
+            images_with_annotations = self.add_bboxes_and_annotation(coco_data)
+
+            # Extract the list of detected ingredients for each image
+            detected_ingredients = []
+            for image_path, image in images_with_annotations.items():
+                image_ingredients = []
+                for annotation in coco_data['annotations']:
+                    if annotation['image_id'] == self.get_image_id_from_path(image_path, coco_data['images']):
+                        category_id = annotation.get('category_id', None)
+                        if category_id is not None:
+                            label = self.get_label_from_category_id(category_id, coco_data['categories'])
+                            image_ingredients.append(label)
+                detected_ingredients.append(image_ingredients)
+
+            return images_with_annotations, detected_ingredients
+        else:
+            detected_ingredients = []
+            for image_dict in coco_data['images']:
+                image_id = image_dict['id']
+                image_ingredients = []
+                for annotation in coco_data['annotations']:
+                    if annotation['image_id'] == image_id:
+                        category_id = annotation.get('category_id', None)
+                        if category_id is not None:
+                            label = self.get_label_from_category_id(category_id, coco_data['categories'])
+                            image_ingredients.append(label)
+                detected_ingredients.append(image_ingredients)
+
+            return {}, detected_ingredients
+
+    def get_image_id_from_path(self, image_path: str, images: list) -> Optional[int]:
+        """
+        Get the image ID for a given image path from the COCO images list.
+
+        Args:
+            image_path (str): Path to the image.
+            images (list): List of image dictionaries from the COCO JSON.
+
+        Returns:
+            int: The image ID if found, otherwise None.
+        """
+        for image in images:
+            if os.path.basename(image['file_name']) == os.path.basename(image_path):
+                return image['id']
+        return None
+
+    def get_label_from_category_id(self, category_id: int, categories: list) -> Optional[str]:
+        """
+        Get the label (ingredient name) corresponding to a category_id.
+
+        Args:
+            category_id (int): The ID of the category.
+            categories (list): List of category dictionaries from the COCO JSON.
+
+        Returns:
+            str: The name of the category if found, otherwise None.
+        """
+        for category in categories:
+            if category['id'] == category_id:
+                return category['name']
+        return None
     def add_bboxes_and_annotation(self, coco_data) -> Image:
 
         # Get image details
@@ -101,8 +184,5 @@ class IngredientClassifier():
                 images[image_path] = pil_image
         return images
 
-classifier = IngredientClassifier()
-coco_data = classifier.inference(paths.config["images"])
-# if images:
-#     for name, image in images.items():
-#         image.save(f"./results/annotated_images/{name}")
+
+
