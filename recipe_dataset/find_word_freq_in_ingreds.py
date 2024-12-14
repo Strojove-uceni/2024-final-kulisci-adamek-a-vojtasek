@@ -33,6 +33,6 @@ for word, count in word_freq.most_common(50):  # Adjust number as needed
     print(f"{word}: {count}")
 
 # Optional: Save the word frequency to a file
-with open("ingredients_configs/ingredient_frequency.txt", "w") as file:
+with open("../ingredients_configs/ingredient_frequency.txt", "w") as file:
     for word, count in word_freq.most_common():
         file.write(f"{word}: {count}\n")

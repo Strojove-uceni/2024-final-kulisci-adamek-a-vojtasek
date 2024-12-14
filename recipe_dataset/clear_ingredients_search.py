@@ -3,7 +3,7 @@ import yaml
 
 from project.recipe_dataset.ingredients_functions import extract_ingredient, load_ingredients
 
-composite_ingredients, single_ingredients = load_ingredients("ingredients_configs/ingredients_config.yaml")
+composite_ingredients, single_ingredients = load_ingredients("../ingredients_configs/ingredients_config.yaml")
 
 print(composite_ingredients, single_ingredients)
 with open("data_cropped.yaml", "r") as file:

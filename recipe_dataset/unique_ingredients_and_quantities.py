@@ -38,8 +38,8 @@ print(f"Number of unique quantities: {len(unique_quantities)}")
 print(f"Number of unique ingredients: {len(unique_ingredients)}")
 
 # Optional: Save unique terms for further review
-with open("ingredients_configs/unique_quantities.txt", "w") as file:
+with open("../ingredients_configs/unique_quantities.txt", "w") as file:
     file.write("\n".join(sorted(unique_quantities)))
 
-with open("ingredients_configs/unique_ingredients.txt", "w") as file:
+with open("../ingredients_configs/unique_ingredients.txt", "w") as file:
     file.write("\n".join(sorted(unique_ingredients)))
