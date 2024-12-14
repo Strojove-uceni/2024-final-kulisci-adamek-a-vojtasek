@@ -1,0 +1,27 @@
+yolo_results:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_results.json
+
+clip_results:
+  /home/petr/Documents/SU2_project/project/coco_dataset1/annotations/clip_results.json
+
+images:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/images
+validation_images:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/validation_dataset
+embedded_labels:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/clip_model_pipeline/embedded_labels
+
+ingredients_dict:
+  /home/petr/Documents/SU2_project/project/ingredients_configs/ingredients_config.yaml
+
+reversed_ingredients_dict:
+  /home/petr/Documents/SU2_project/project/ingredients_configs/ingredients_config_reversed.yaml
+
+yolo_model_1:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/yolo_model_pipeline/models/last.pt
+
+yolo_model_2:
+  /home/petr/Documents/SU2_project/project/classification_pipeline/yolo_model_pipeline/models/for_packed.pt
+
+cropped_objects_folder:
+  "/home/petr/Documents/SU2_project/project/classification_pipeline/results/yolo_objects_cropped"

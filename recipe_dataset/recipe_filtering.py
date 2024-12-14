@@ -34,8 +34,8 @@ def filter_ingredients(ingredients_string, desired, expected):
 
 # File paths
 file_path = '/mnt/home2/recipe_dataset/full_dataset.csv'
-exp_ing_file = "expected_ingredients.json"
-desired_ing_file = "desired_ingredients.json"
+exp_ing_file = "../ingredients_configs/expected_ingredients.json"
+desired_ing_file = "../ingredients_configs/desired_ingredients.json"
 
 # Load data
 try:

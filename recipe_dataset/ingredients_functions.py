@@ -1,3 +1,5 @@
+import itertools
+
 import yaml
 import re
 
@@ -14,12 +16,13 @@ def load_ingredients(file_path):
     composite_ingredients = []
     single_ingredients = []
     for category, ingredients in data.items():
-        for ingredient in ingredients.keys():
+        for ingredient in ingredients.values():
             if " " in ingredient:  # Check for composite ingredients
-                composite_ingredients.append(ingredient)
+                composite_ingredients += ingredient
             else:
                 single_ingredients.append(ingredient)
-
+    composite_ingredients = list(itertools.chain(*composite_ingredients))
+    single_ingredients = list(itertools.chain(*single_ingredients))
     return composite_ingredients, single_ingredients
 
 # Access the lists
