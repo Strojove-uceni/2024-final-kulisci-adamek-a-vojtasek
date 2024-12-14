@@ -1,5 +1,16 @@
 .idea/
 images/
 runs/
+coco_dataset/
+coco_dataset1/
+coco_dataset2/
+yolo_objects_cropped/
+embedded_labels/
+labeled_images/
 *.pt
+*.txt
 __pycache__/
+tensorboard_logs/
+*.jpg
+*.png
+*.jpeg
