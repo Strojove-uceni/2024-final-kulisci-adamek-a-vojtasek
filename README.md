@@ -67,22 +67,6 @@ Once the ingredients are identified, they are matched against a **recipe databas
 ---
 
 
-### 📈 **2. Plots & Graphs**
-**Precision-Recall Curve Example**:
-```python
-import matplotlib.pyplot as plt
-
-plt.plot([0.1, 0.2, 0.8, 0.9], [0.9, 0.8, 0.6, 0.5], marker='o')
-plt.xlabel('Recall')
-plt.ylabel('Precision')
-plt.title('Precision-Recall Curve')
-plt.show()
-```
-
-We visualize the Precision-Recall curves for key ingredient classes, as well as the overall **mAP at different IoU thresholds**.
-
----
-
 ## 🍽️ Recipe Recommendation System
 
 ### **How it works:**
