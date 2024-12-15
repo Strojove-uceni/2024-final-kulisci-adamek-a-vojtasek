@@ -57,9 +57,10 @@ Once the ingredients are identified, they are matched against a **recipe databas
 Optionally, we can send the list of detected ingredients to **ChatGPT** to generate creative and unique recipe suggestions.
 
 ---
+## Classes:
+'coffee', 'egg', 'yogurt', 'strawberry', 'bell pepper', 'blueberry', 'ham', 'naan', 'buttermilk', 'chilli', 'tofu', 'asparagus', 'ginger', 'cottage cheese', 'vegetable oil', 'peas', 'beef', 'garlic', 'black pepper', 'cream', 'vodka', 'paprika', 'beet', 'mushroom', 'pesto', 'cloves', 'spinach', 'basil', 'pickles', 'cucumber', 'pork', 'sweet potato', 'watermelon', 'onion', 'oregano', 'honey', 'barbecue sauce', 'olive', 'grape', 'mozzarella', 'sour cream', 'coconut milk', 'mayonnaise', 'bacon', 'thyme', 'red wine', 'provence herbs', 'white wine', 'avocado', 'radish', 'salami', 'jalapeño', 'worcestershire sauce', 'curry powder', 'pomegranate', 'flour', 'eggplant', 'vanilla', 'apple', 'bread', 'broccoli', 'soy sauce', 'whiskey', 'pita', 'baguette', 'pineapple', 'rice', 'feta', 'potato', 'cod', 'parsley', 'zucchini', 'ricotta', 'cabbage', 'milk', 'tomato', 'butter', 'banana', 'cocoa powder', 'mustard', 'sausage', 'starch', 'carrot', 'gouda', 'lemon', 'mango', 'horseradish', 'cream cheese', 'dill', 'baking soda', 'baking powder', 'raspberry', 'tuna', 'chocolate', 'peach', 'orange', 'kiwi', 'gingerbread spice', 'trout', 'pasta', 'salmon', 'lettuce', 'brie', 'cherry', 'prosciutto', 'pear', 'vinegar', 'olive oil', 'egg noodles', 'blue cheese', 'cilantro', 'nutmeg', 'tortillas', 'butternut squash', 'cauliflower', 'bay leaf', 'cantaloupe', 'celery', 'hot sauce', 'cumin', 'cheddar', 'lime', 'beer', 'cinnamon', 'rosemary', 'ketchup', 'scallions', 'parmesan', 'cheese', 'coconut', 'leek', 'chicken', 'sugar', 'water'
 
 ## 📊 Evaluation
-
 ### 🔍 **1. Metrics**
 We evaluated the ingredient detection system using the following metrics:
 - **Precision**: Measures how accurate our predictions are (i.e., how many of the detected ingredients are correct).  
