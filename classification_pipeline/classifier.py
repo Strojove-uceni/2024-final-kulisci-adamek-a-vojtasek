@@ -30,6 +30,7 @@ class IngredientClassifier():
         # clip_labels = predict(self.clip_model)
         cropped_obj = paths.config["cropped_objects_folder"]
         unified_labels_list = list(set(unified_labels.values()))
+        print(len(unified_labels_list))
         for label in unified_labels_list:
             coco_data["categories"].append({
                 "id": unified_labels_list.index(label),

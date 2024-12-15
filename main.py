@@ -15,9 +15,11 @@ if __name__ == "__main__":
     if images:
         for name, image in images.items():
             image.save(f"{paths.config["annotated_images"]}/{os.path.basename(name)}")
-    # print("GPT recipe:")
-    # print(chat_gpt_api(list(ingredients.values())[0]))
+
     print("Filtered recipe:")
-    for i, line in enumerate(recipe_filtering(["chicken", "bread", "egg", "flour", "olive oil"]), start=1):
+    for i, line in enumerate(recipe_filtering(list(ingredients.values())[0]), start=1):
         print(f"{i})", line)
         print()
+
+    print("GPT recipe:")
+    print(chat_gpt_api(list(ingredients.values())[0]))
