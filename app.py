@@ -16,7 +16,6 @@ def filter_recipes1(labels):
     # Normally, this would call your filtering script
     # Example: subprocess.run(['python', 'filter_recipes.py', json.dumps(labels)])
     print(f"Filtering recipes using: {labels}")
-    labels = ["chicken", "bread", "egg", "flour", "olive oil"]
     recipe = recipe_filtering(labels)  # Simulated output
     return labels, recipe  # Simulated output
 
