@@ -43,7 +43,7 @@ We trained a **YOLOv11m** model to detect general ingredient objects in images. 
 
 **Training details**:
 - **Datasets**: Combined datasets from multiple online sources and Roboflow.  
-- **Epochs**: XX epochs with **X batches**.  
+- **Epochs**: **200** epochs with **16 batch size**.  
 - **Augmentations**: Flips, color shifts, random noise, and other augmentations included in the datasets.  
 
 ### 🖼️ **3. Ingredient Classification using CLIP**
@@ -141,4 +141,11 @@ This structure helps users and developers understand where to find key component
 
 ## 📘 **Final Thoughts**
 This README is designed to help users, instructors, and collaborators understand how **Remi** works. It explains the purpose, methodology, and usage clearly, while also offering insights into how to run and evaluate the system. Let us know if you'd like any part refined or expanded.
+
+References
+
+YOLOv11: An Overview of the Key Architectural Enhancements. Retrieved from [https://arxiv.org/abs/2410.17725]
+
+Radford, A., et al. (2021). Learning Transferable Visual Models From Natural Language Supervision. Retrieved from [https://arxiv.org/abs/2103.00020]
+
 
